@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renascer: A Jornada de Layla</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1c3d58, #678a94);
+    color: #333;
+    text-align: center;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+#gameContainer {
+    width: 80%;
+    max-width: 1000px;
+    margin: 20px auto;
+    background-color: #7a7c80;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #5f0404;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: #920707;
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #012e36;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(1);
+}
+
+img {
+    display: block;
+    max-width: 75%;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#storyContainer {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.backButton {
+    background-color: #ff6347;
+    color: white;
+    padding: 12px 30px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 20px;
+    transition: background-color 0.3s;
+}
+
+.backButton:hover {
+    background-color: #ff4500;
+}
+
+
+button {
+    display: inline-block;
+    margin: 10px 20px;
+}
+
+button + button {
+    margin-left: 10px;
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="container" id="storyContainer">
+        <h1>Renascer: A Jornada de Layla</h1>
+        <p>Layla, uma jovem sem grandes ambições, leva uma vida simples em sua cidadezinha.</p>
+        <p> Até o dia em que, ao caminhar pela praça, ela encontra um vulto misterioso em um beco. 
+        <p>Algo dentro dela a diz para segui-lo.</p>
+        <img src="img0.webp" alt="Layla andando na praça">
+        <button onclick="escolha1()">Seguir o vulto</button>
+        <button onclick="finalUltimoSuspiro()">Ignorar e Fugir</button>
+    </div>
+
+    <script>
+let treinamentoEscolha = "";
+let mentorEscolha = "";
+let armaEscolha = "";
+let aliançaComArzhan = false;
+let traiuTomas = false; 
+
+function recomecar() {
+   
+    treinamentoEscolha = "";
+    mentorEscolha = "";
+    armaEscolha = "";
+    aliançaComArzhan = false;
+    traiuTomas = false;
+
+    
+    $("#storyContainer").html(`
+        <h1>Renascer: A Jornada de Layla</h1>
+        <p>Layla, uma jovem sem grandes ambições, leva uma vida simples em sua cidadezinha.</p>
+        <p> Até o dia em que, ao caminhar pela praça, ela encontra um vulto misterioso em um beco. 
+        <p>Algo dentro dela a diz para segui-lo.</p>
+        <img src="img0.webp" alt="Layla andando na praça">
+        <button onclick="escolha1()">Seguir o vulto</button>
+        <button onclick="finalUltimoSuspiro()">Ignorar e Fugir</button>
+    `);
+}
+
+function escolha1() {
+            $("#storyContainer").html(`
+                <p>Layla decide seguir a sombra e, ao se aproximar, descobre que se trata de um dragão.</p>
+                <p>O dragão se apresenta como Tomas, seu guardião e mentor.</p>
+                <p>Tomas fala com voz grave e imponente: — Layla, você é a última herdeira de um reino perdido.
+                <p>Seu tio, o usurpador, ameaça tomar o trono, e somente você pode detê-lo. Eu estarei ao seu lado, mas você deve estar preparada.</p>
+                <img src="img1.webp">
+                <button onclick="escolha2()">Ouvir Tomas e aceitar seu destino</button>
+                <button onclick="finalUltimoSuspiro()">Recusar e tentar continuar a vida normal</button>
+            `);
+        }
+
+
+        function escolha2() {
+            $("#storyContainer").html(`
+                <p>Layla decide seguir o destino que Tomas lhe apresenta.
+                <p>Juntos, eles partem para um local secreto onde ela começará seu treinamento.
+                <p>Tomas a observa com orgulho, dizendo:</p>
+                <p> — Layla, não subestime o que está por vir. Seu tio é traiçoeiro e forte. Você precisará de muito mais do que força para vencê-lo.</p>
+                <img src="img2.webp" alt="Layla treinando com Tomas">
+                <button onclick="escolha3()">Buscar a arma divina dos anões</button>
+                <button onclick="escolha4()">Confiar apenas em seus poderes mágicos</button>
+            `);
+        }
+
+  
+        function escolha3() {
+            $("#storyContainer").html(`
+                <p>Após uma jornada perigosa, Layla encontra a forja dos anões, onde várias armas mágicas estão guardadas. 
+                <p>Ela precisa escolher a arma que irá determinar seu destino.</p>
+                <img src="img3.webp" alt="Armas mágicas dos anões">
+                <button onclick="escolha5('flecha')">Escolher a Flecha da Miséria</button>
+                <button onclick="escolha5('adagas')">Escolher as Adagas Sombrias</button>
+                <button onclick="escolha5('lanca')">Escolher a Lança do Orgulho</button>
+                <button onclick="escolha5('espada')">Escolher a Espada Divina</button>
+            `);
+        }
+
+        function escolha4() {
+        $("#storyContainer").html(`
+            <p>Após refletir sobre suas opções, Layla decide que seus próprios poderes mágicos são suficientes. Ela sente uma energia crescente dentro de si, uma força que parece conectar-se com o próprio universo.</p>
+            <p>Tomas observa a escolha de Layla com uma expressão preocupada. Ele sabia que a magia é poderosa, mas sem o devido controle, pode ser perigosa.</p>
+            <p>— Layla, a magia é algo imprevisível. Não subestime sua força, e lembre-se de que não podemos sempre confiar apenas nela. Eu estarei ao seu lado, mas você precisa aprender a equilibrar seus poderes.</p>
+            <img src="img4.webp" alt="Layla usando magia">
+            <button onclick="escolha5()">Concentrar sua magia e preparar-se para a batalha</button>
+            <button onclick="escolha6()">Buscar mais treinamento para controlar seus poderes</button>
+        `);
+    }
+  
+    function escolha5(arma) {
+    armaEscolha = arma;
+    let descricao = "";
+
+    if (arma === "flecha") {
+        descricao = "A Flecha da Miséria, capaz de atravessar até as armaduras mais fortes.";
+    } else if (arma === "adagas") {
+        descricao = "As Adagas Sombrias, perfeitas para ataques furtivos e rápidos.";
+    } else if (arma === "lanca") {
+        descricao = "A Lança do Orgulho, simbolizando força e sacrifício.";
+    } else if (arma === "espada") {
+        descricao = "A Espada Divina, poderosa o suficiente para cortar a escuridão.";
+    }
+
+    $("#storyContainer").html(`
+        <img src="img5.jpg" alt="Layla usando magia">
+        <p>Com a ${descricao}, Layla sente uma força renovada e parte para o reino dos elfos em busca de um mentor que a ajude a aperfeiçoar suas habilidades. Tomas está ao seu lado, observando-a com um olhar preocupado, mas confiante.</p>
+        <button onclick="escolha6()">Viajar até o reino dos elfos</button>
+    `);
+}
+
+ 
+        function escolha6() {
+            $("#storyContainer").html(`
+                <p>Chegando ao reino dos elfos, Layla conhece três mentores:
+                <p>Belerik, o guerreiro de luta; Ashe, o mestre das armas; e Lilian, a maga das sombras.</p>
+                <p>Tomas intervém e diz: — Cada um desses mentores pode moldá-la de uma maneira única. Mas você deve escolher sabiamente, pois seu destino está diretamente ligado a essa decisão. 
+                <p>Lembre-se: a confiança será a chave do sucesso, Layla.</p>
+                <img src="img6.webp" alt="Mentores élficos">
+                <button onclick="escolha7('belerik')">Treinar com Belerik</button>
+                <button onclick="escolha7('ashe')">Treinar com Ashe</button>
+                <button onclick="escolha7('lilian')">Treinar com Lilian</button>
+            `);
+        }
+
+  
+        function escolha7(mentor) {
+            mentorEscolha = mentor;
+            let descricao = "";
+            if (mentor === "belerik") {
+        descricao = "Belerik ensina táticas de combate, aprimorando as habilidades físicas de Layla para batalhas corpo a corpo.";
+    } else if (mentor === "ashe") {
+        descricao = "Ashe, mestre das armas, ensina Layla a dominar uma variedade de armas, tornando-a uma combatente versátil e poderosa.";
+    } else if (mentor === "lilian") {
+        descricao = "Lilian, maga das sombras, ensina magia furtiva, ofensiva e técnicas de controle das sombras, ampliando os poderes místicos de Layla.";
+    } else {
+        descricao = "Mentor desconhecido, escolha uma opção válida.";
+    }
+
+            $("#storyContainer").html(`
+                <p>Com o treinamento de ${mentor}, Layla se sente pronta para enfrentar seu tio, o usurpador. Tomas ainda a acompanha, sempre atento ao seu progresso, dizendo:</p>
+                <p> — Eu confio em você, Layla, mas lembre-se de que a jornada está longe de ser fácil. Prepare-se para os sacrifícios que virão.</p>
+                <img src="img7.webp">
+                <button onclick="escolha8()">Rumo ao castelo do tio</button>
+            `);
+        }
+
+      
+        function escolha8() {
+            $("#storyContainer").html(`
+                <p>Layla e Tomas chegam ao castelo de seu tio. A batalha é feroz, mas Tomas, com sua força e magia, está ao seu lado. Ele diz:</p>
+                <p> — Layla, agora é o momento. Juntos, podemos derrotá-lo. Não tenha medo, e lembre-se do que treinamos.</p>
+                <img src="img8.webp" alt="Confronto no castelo">
+                <button onclick="escolha9()">Enfrentar seu tio sem hesitar</button>
+                <button onclick="escolha10()">Tentar negociar com seu tio</button>
+                <button onclick="escolha11()">Hesitar, recuar e reunir mais aliados</button>
+            `);
+        }
+
+       
+        function escolha9() {
+            $("#storyContainer").html(`
+                <p>Layla decide enfrentar seu tio diretamente. Tomas, com sua força imensa, ataca seu tio também. Juntos, eles lutam até o último suspiro.</p>
+                <img src="img9.webp">
+                <button onclick="escolha12()">Atacar com sua arma</button>
+                <button onclick="escolha13()">Usar magia para derrotá-lo</button>
+            `);
+        }
+
+        function escolha10() {
+            $("#storyContainer").html(`
+                <p>Layla tenta negociar com seu tio que a oferece poder e controle em troca de sua rendição. Tomas observa com desconfiança, mas ainda assim permanece ao lado dela.</p>
+                <img src="img10.webp">
+                <button onclick="escolha14()">Aceitar o acordo</button>
+                <button onclick="escolha15()">Rejeitar e enfrentar o tio</button>
+            `);
+        }
+
+ 
+        function escolha11() {
+    $("#storyContainer").html(`
+        <p>Layla decide que ainda não está pronta para enfrentar seu tio e parte para reunir mais aliados. Tomas a segue, ainda com receio do que possa acontecer.</p>
+        <img src="img11.webp" alt="Layla e Tomas em busca de aliados">
+        <button onclick="escolha16()">Buscar a ajuda de elfos</button>
+        <button onclick="escolha17()">Buscar a ajuda de anões</button>
+    `);
+}
+
+
+function escolha12() {
+    let finalText = "";
+    let imagemEscolha = "";
+
+    if (armaEscolha === "flecha") {
+        finalText = "Com a Flecha da Miséria, Layla atravessa o peito de seu tio, enquanto Tomas incendeia o castelo, eliminando qualquer chance de fuga.";
+        imagemEscolha = "img12flecha.webp";
+    } else if (armaEscolha === "adagas") {
+        finalText = "Com as Adagas Sombrias, Layla infiltra-se pelas sombras e, com precisão mortal, derrota seu tio, enquanto Tomas mantém os inimigos ocupados.";
+        imagemEscolha = "img12adaga.webp";
+    } else if (armaEscolha === "lanca") {
+        finalText = "Com a Lança do Orgulho, Layla atinge seu tio com um golpe fatal, enquanto Tomas enfrenta as forças inimigas em nome dela.";
+        imagemEscolha = "img12lança.webp";
+    } else if (armaEscolha === "espada") {
+        finalText = "Com a Espada Divina, Layla corta as correntes do seu tio, esmagando sua tirania de uma vez por todas. Tomas ruge ao fundo, combatendo os soldados restantes.";
+        imagemEscolha = "img12espada.webp";
+    }
+
+    $("#storyContainer").html(`
+        <p>${finalText}</p>
+        <p>Tomas foi gravemente ferido e, em um último esforço, se aproxima de Layla.</p>
+        <p>"Layla, eu... tenho algo a te contar. A maldição que Arkzan me jogou só pode ser quebrada com a morte dele ou a minha. Eu sou um feérico forçado a viver como dragão", diz ele se transformando novamente em feérico, o que quer dizer que sua vida está se esvaindo.</p>
+        <img src="${imagemEscolha}">
+        <button onclick="finalRomantico()">Agir</button>
+    `);
+}
+
+
+function escolha13() {
+    let finalText = "";
+    if (armaEscolha === "flecha") {
+        finalText = "Layla usa a magia para distraí-lo, antes de disparar a Flecha da Miséria, que atravessa o peito de seu tio de forma letal.";
+        imagemEscolha = "img12flecha.webp";
+    } else if (armaEscolha === "adagas") {
+        finalText = "Layla usa magia para se esconder nas sombras, e, com um golpe furtivo das Adagas Sombrias, corta a garganta de seu tio sem piedade.";
+        imagemEscolha = "img12adaga.webp";
+    } else if (armaEscolha === "lanca") {
+        finalText = "Com um feitiço de força, Layla utiliza a Lança do Orgulho para empalar seu tio em um combate direto.";
+        imagemEscolha = "img12lança.webp";
+    } else if (armaEscolha === "espada") {
+        finalText = "Layla conjura magia para amplificar o poder da Espada Divina, derrotando seu tio com um único golpe devastador.";
+        imagemEscolha = "img12espada.webp";
+    }
+
+    $("#storyContainer").html(`
+        <p>${finalText}</p>
+        <img src="${imagemEscolha}">
+        <button onclick="finalReinoRenascido()">Paz: Derrotar seu tio e restaurar a paz ao reino</button>
+    `);
+}
+
+
+function escolha14() {
+    $("#storyContainer").html(`
+        <p>Layla decide fugir do castelo e, eventualmente, se exilar. Ela passa o resto de sua vida em paz, longe da guerra e do reino.</p>
+        <img src="img14.webp">
+         <button onclick="recomecar()">Recomeçar</button>
+    `);
+}
+
+
+function escolha15() {
+    $("#storyContainer").html(`
+        <p>Layla luta até o fim e consegue derrotar seu tio, mas a batalha deixa cicatrizes profundas em seu coração.</p>
+        <img src="img15.png">
+        <button onclick="finalSacrificioTomas()">Sacrifício: Tomas se sacrifica por Layla</button>
+    `);
+}
+
+
+function escolha16() {
+    $("#storyContainer").html(`
+        <p>Layla viaja até a floresta escondida onde se encontra o reino dos elfos e consegue reunir forças para um último confronto contra seu tio.</p>
+        <img src="img16.webp">
+        <button onclick="finalSacrificioTomas()">Sacrifício: Tomas se sacrifica por Layla</button>
+    `);
+}
+
+function escolha17() {
+    $("#storyContainer").html(`
+        <p>Layla viaja até a toca dos anoes e consegue reunir forças para um último confronto contra seu tio.</p>
+        <img src="img17.webp">
+        <button onclick="finalRainhaSombria()">seguir adiante</button>
+    `);
+}
+
+
+function finalRainhaSombria() {
+    $("#storyContainer").html(`
+        <p>Layla derrota seu tio e toma o trono, porem antes de perecer ele revela que a morte de seus pais não foi um acidente e que foi ele que orquestrou tudo</p>
+        <p>Sua sede por poder e vingança a torna uma rainha implacável, governando com punho de ferro.</p>
+        <img src="img18.webp">
+         <button onclick="recomecar()">Recomeçar</button>
+        `);
+}              
+
+function finalReinoRenascido() {
+    $("#storyContainer").html(`
+        <p>Com o reino restaurado, Layla governará com sabedoria, trazendo paz e prosperidade para todos os súditos.</p>
+        <p>Após a morte do tio foi revelado que Tomas na verdade era um feerico que foi amaldiçoado em viver como um dragao, e assim sua maldição foi quebrada</p>
+        <img src="img19.webp">
+         <button onclick="recomecar()">Recomeçar</button>
+        `);
+}
+
+
+function finalSacrificioTomas() {
+    $("#storyContainer").html(`
+    <p>Tomas se sacrifica para salvar Layla, permitindo que ela vença. Sozinha, Layla reina sobre o reino com o peso da perda.</p>
+    <img src="img20.webp">
+     <button onclick="recomecar()">Recomeçar</button>
+        `);
+}
+
+       
+function finalRomantico() {
+    $("#storyContainer").html(`
+        <p>Layla, com lagrimas nos olhos e vendo que nao tem muito tempo o da um beijo na testa e se dirige ao seu tio que estava caido ao lado, desfere um ultimo golpe em seu peito e com seu sangue conjura um feitiço que salva tomas</p>
+        <p>"o mesmo sangue que lhe amaldiçou agora te salva-ra"</p>
+        <img src="img21.png">
+        <p>Assim com a guerra ganha e sentimentos não ditos mas transmitidos pelo olhar eles seguem rumo ao reino para governar juntos</p>
+         <button onclick="recomecar()">Recomeçar</button>
+            `);
+        }
+
+function finalUltimoSuspiro() {
+    $("#storyContainer").html(`
+        <p>Layla, com medo do que poderia acontecer, decide fugir e tentar viver uma vida normal. Mas seu tio a encontra e a derrota, e o reino cai sob seu controle mais uma vez.</p>
+        <img src="img22.webp" alt="Layla fugindo e sendo derrotada">
+        <p>Fim do jogo.</p>
+         <button onclick="recomecar()">Recomeçar</button>
+    `);
+}
+    </script>
+</body>
+</html>
